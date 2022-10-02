@@ -91,9 +91,9 @@ if num6 != 0:
         if num6 == 1:
             poz += W6[0] + " "
         elif 1 < num6 < 5:
-            poz += W6[1] + " "
+            poz += W6[1]
         else:
-            poz += W6[2] + " "
+            poz += W6[2]
 
 if (num6 == 0) and (num5 or num4 or num3 or num2 or num1 !=0):
     poz += W6[2]
