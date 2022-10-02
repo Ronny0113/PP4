@@ -7,4 +7,6 @@
 Программа для выбора выгодного тарифного плана такси работникам фирмы
 
 Программу можно отркрыть в любой среде разработки для Python, написана в PyCharm Community Edition 2021
-## Скриншот
+## Скриншоты
+![](https://github.com/Ronny0113/PP4/blob/main/test1.png "Test1")
+![](https://github.com/Ronny0113/PP4/blob/main/test2.png "Test2")
