@@ -1,44 +1,44 @@
-while True:
-    while True:
+while True:  # цикл, который не позволяет программе завершиться до решения пользователя
+    while True:  # обработка ошибки ввода
         try:
             worker_num = int(input("Введите количество сотрудников или введите 0 чтобы закончить: "))
             break
         except ValueError:
             print("Введите цифру")
-    if worker_num == 0:
+    if worker_num == 0:  # если пользователь хочет закончить (выход из цикла)
         break
-    while True:
+    while True:  # обработка ошибки ввода
         try:
             path = [int(i) for i in input("Введите расстояния в километрах до дома через пробелы: ").split()]
             break
         except ValueError:
             print("Введите ЦИФРЫ, через пробел")
-    while True:
+    while True:  # обработка ошибки ввода
         try:
             taxi = [int(i) for i in input("Введите тарифы в за проезд одного километра через пробелы: ").split()]
             break
         except ValueError:
             print("Введите тарифы ЦИФРАМИ, через пробел")
-    path1 = list(0 for i in range(0, worker_num))
-    if worker_num != len(path) and worker_num != len(taxi):
-        print("Введите по одному расстоянию и тарифу на каждого сотрудника")
+    path1 = list(0 for i in range(0, worker_num))  # список из нулей для расстояний
+    if worker_num != len(path) and worker_num != len(taxi):  # проверка на соответсвие количества сотрудников с
+        print("Введите по одному расстоянию и тарифу на каждого сотрудника")  # количеством расстояний и тарифов
         continue
     for i in range(worker_num):
-        path1[i] = (path[i], i + 1)
-    path1.sort()
-    taxi1 = list(0 for i in range(0, worker_num))
+        path1[i] = (path[i], i + 1)  # заполнение списка кортежами, где первое чисто это расстояние, а второе номер
+    path1.sort()  # сортировка от меньшего к большему
+    taxi1 = list(0 for i in range(0, worker_num))  # список из нулей для тарифов
     for i in range(worker_num):
-        taxi1[i] = (taxi[i], i + 1)
-    taxi1.sort(reverse=True)
-    ans = [0] * (worker_num + 1)
+        taxi1[i] = (taxi[i], i + 1)  # заполнение списка кортежами, где первое чисто это тариф, а второе номер
+    taxi1.sort(reverse=True)  # сортировка от большего к меньшему
+    ans = [0] * (worker_num + 1)  # список для вывода ответа
     for i in range(worker_num):
-        ans[path1[i][1]] = taxi1[i][1]
+        ans[path1[i][1]] = taxi1[i][1]  # в списке ответа сопоставляем самому меньшему расстоянию самый большой тариф
     for i in range(1, worker_num + 1):
-        print(i, "работнику надо поехать на такси номер", ans[i])
+        print(i, "работнику надо поехать на такси номер", ans[i])  # вывод ответа
     num = int(0)
     for i in range(len(path1)):
-        num += (path1[i][0] * taxi1[i][0])
-
+        num += (path1[i][0] * taxi1[i][0])  # считаем общую стоимость поездки
+    # код из 2й лабораторной работы
     W1a = ["один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"]
     W1b = ["одна", "две", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"]
     W2 = ["одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"]
@@ -114,4 +114,4 @@ while True:
         poz += W6[2]
 
     poz = poz.capitalize()
-    print("Всего на дорогу придётся потратить", num, "(" + poz + ")\n")
+    print("Всего на дорогу придётся потратить", num, "(" + poz + ")\n")  # выводим общую стоимость сначала цифрой, потом буквами
