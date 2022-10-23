@@ -20,7 +20,7 @@ while True:  # цикл, который не позволяет программ
         except ValueError:
             print("Введите тарифы ЦИФРАМИ, через пробел")
     path1 = list(0 for i in range(0, worker_num))  # список из нулей для расстояний
-    if worker_num != len(path) and worker_num != len(taxi):  # проверка на соответсвие количества сотрудников с
+    if worker_num != len(path) or worker_num != len(taxi):  # проверка на соответсвие количества сотрудников с
         print("Введите по одному расстоянию и тарифу на каждого сотрудника")  # количеством расстояний и тарифов
         continue
     for i in range(worker_num):
